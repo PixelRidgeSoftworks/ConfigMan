@@ -137,11 +137,10 @@ module ConfigMan
   def self.load
     config_file_path = File.join(Dir.pwd, '.config')
     parsed_config = send_to_parser(config_file_path)
-    # Assuming send_to_parser delegates to the correct parser and returns a hash
 
-    parsed_config.each do |key, value|
-      define_singleton_method(key) do
-        value
+    parsed_config.each do |module_name, config|
+      define_singleton_method(module_name) do
+        config
       end
     end
   end

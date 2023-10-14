@@ -34,13 +34,16 @@ module ConfigMan
         # Access the loaded modules and expected keys from the main class
         loaded_modules = ConfigMan.used_modules
         expected_keys = ConfigMan.expected_keys
+        puts "Debug: About to pass these #{expected_keys} to the utils module"
+        puts "and these #{loaded_modules}"
+        puts "and this #{config_hash}"
 
         # Sort the keys into their respective sections
         sorted_config = Utils.sort_into_sections(config_hash, expected_keys, loaded_modules)
 
         # Debug statement to output the sorted_config
-        puts 'Debug: About to write the following sorted_config to INI file:'
-        p sorted_config
+        #puts 'Debug: About to write the following sorted_config to INI file:'
+        #p sorted_config
 
         # Write the sorted config to the INI file
         ini = IniFile.new(content: sorted_config)

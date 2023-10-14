@@ -10,6 +10,7 @@ module ConfigMan
       CONFIG_FILE_PATH = File.join(Dir.pwd, '.config').freeze
 
       # Parse the .config file and return a hash of the configuration values
+      # Parse the .config file and return a hash of the configuration values
       def self.parse(file_path)
         raise ArgumentError, "File not found: #{file_path}" unless File.exist?(file_path)
 
@@ -17,8 +18,21 @@ module ConfigMan
         document = REXML::Document.new(xml_file)
         parsed_config = {}
 
+        # Recursive lambda to parse nested elements
+        parse_element = lambda do |element|
+          if element.has_elements?
+            element_hash = {}
+            element.each_element do |child|
+              element_hash[child.name] = parse_element.call(child)
+            end
+            element_hash
+          else
+            element.text
+          end
+        end
+
         document.elements.each('config/*') do |element|
-          parsed_config[element.name] = element.text
+          parsed_config[element.name] = parse_element.call(element)
         end
 
         raise ArgumentError, "Invalid XML format in #{file_path}" unless parsed_config.is_a?(Hash)
