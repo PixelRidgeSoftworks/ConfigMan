@@ -1,0 +1,71 @@
+PixelRidge Business Exclusive General Public Use License for Software Executables (PixelRidge-BEGPULSE)
+
+## Version 1.3
+
+### Preamble
+
+This License governs the terms under which the software ("Software") provided by PixelRidge Softworks ("Licensor") may be used, modified, and distributed.
+
+### 1. Definitions
+
+- **Software**: The original software and associated documentation provided under this license.
+- **Business Purposes**: Any activity designed with the main intent to generate revenue or profit.
+- **Modification**: Any change or addition to the Software's source code or executable.
+- **Distribution**: The act of making the Software available to third parties.
+- **Contributor**: Any individual or entity that modifies or distributes the Software.
+
+### 2. License Grant
+
+Subject to the terms and conditions of this License, Licensor hereby grants you a worldwide, non-exclusive, non-transferable, non-sublicensable license to use and modify the Software.
+
+### 3. Attribution
+
+You must provide attribution to the Licensor by including a plain-view URI (or link) to the Licensor's website. This link must be easily visible to all users and not hidden under any circumstances. It should be noted that this should only apply in the event that it can. In the event a public link is impossible due to the nature of the usage of the Software, it's expected that attribution be given in a way such that the attribution complies with the Open Source Initiative standards for Open Source Attribution.
+
+### 4. Business Use
+
+If you wish to use the Software for Business Purposes, you must obtain written permission from PixelRidge Softworks. Failure to obtain such permission will result in a violation of this License.
+
+### 5. Indemnification
+
+You agree to indemnify, defend, and hold harmless PixelRidge Softworks and its affiliates from and against any and all claims, damages, losses, liabilities, costs, and expenses arising out of or relating to your use or distribution of the Software.
+
+### 6. No Warranty and Limitation of Liability
+
+The Software is provided "AS-IS," without any warranty of any kind, either express or implied. The Software is designed to be highly secure but will only be as secure as the system on which it is deployed. On an insecure system, the Software may exacerbate existing security issues. PixelRidge Softworks shall not be liable for any damages arising from the use of the Software.
+
+### 7. Updates and Versioning
+
+PixelRidge Softworks may or may not provide updates to the Software in the future. There is no obligation to provide updates or support for the Software. The latest version of this License shall always be considered the governing terms. PixelRidge Softworks will provide reasonable notice in the event of a license change. Notice shall be provided via email. Due to spam laws, we cannot just email you. You may opt into our specialized mailing list for licensing on our website.
+
+### 8. Source Code Availability
+
+Any modifications to the Software must remain open-source and source-available in their entirety unless another agreement with the Licensor is formed.
+
+### 9. Compliance Monitoring
+
+Compliance with this License may or may not be monitored by PixelRidge Softworks. You grant PixelRidge Softworks the right to monitor for compliance as it sees fit.
+
+### 10. Data Collection
+
+If the Software collects any data, such data will be used in accordance with PixelRidge Softworks' privacy policy.
+
+### 11. Export Control
+
+You agree not to use the Software in violation of any export laws or regulations.
+
+### 12. Termination and Revocation
+
+This License will automatically terminate if you fail to comply with any of its terms or conditions. Revocation is allowed only in the event of a violation of this License.
+
+### 13. Dispute Resolution
+
+Any disputes arising out of this License shall be resolved through arbitration in Alberta, Canada.
+
+### 14. Jurisdiction
+
+This License shall be governed by the laws of Alberta, Canada.
+
+### 15. Miscellaneous
+
+This License constitutes the entire agreement between you and PixelRidge Softworks concerning the Software.
