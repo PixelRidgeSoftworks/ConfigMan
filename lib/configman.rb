@@ -14,6 +14,20 @@ module ConfigMan
   @loaded_parser = nil
   @custom_modules = []
 
+  EXPECTED_KEYS = {
+    'API' => %w[api_endpoint api_key rate_limit],
+    'Cache' => %w[cache_type host port],
+    'Database' => %w[db_host db_port db_user db_password db_name],
+    'Email' => %w[smtp_server smtp_port smtp_user smtp_password smtp_protocol],
+    'FileStorage' => %w[storage_type cloud_provider local_path],
+    'Localization' => %w[language time_zone encoding],
+    'Logging' => %w[log_level log_file log_rotation]
+  }.freeze
+
+  def self.expected_keys
+    EXPECTED_KEYS
+  end
+
   # register any custom modules the user provides
   def self.register_module(file_path)
     raise ArgumentError, "File not found: #{file_path}" unless File.exist?(file_path)
@@ -30,13 +44,23 @@ module ConfigMan
     @custom_modules << mod_class
   end
 
+  def self.used_modules
+    @used_modules
+  end
+
   # Setup ConfigMan with presets
   def self.setup(default_modules, custom_options = {})
+    # Check if a parser is loaded
+    raise 'No parser module loaded. Please load a parser module before calling setup.' if @loaded_parser.nil?
+
     final_config = {}
+
+    # Remove parser names from default_modules
+    default_modules = default_modules.reject { |mod| %w[json ini xml yaml].include?(mod.downcase) }
 
     # Populate defaults from built-in modules
     default_modules.each do |mod|
-      mod_class = Object.const_get("ConfigMan::Modules::#{mod.capitalize}")
+      mod_class = Object.const_get("ConfigMan::Modules::#{mod}")
       final_config.merge!(mod_class.populate_defaults)
     end
 
@@ -85,6 +109,7 @@ module ConfigMan
       if %w[json ini xml yaml].include?(module_name.downcase)
         # It's a parser
         require_relative "configman/parsers/#{module_name.downcase}"
+        @loaded_parser = module_name.downcase
       else
         # It's a regular module
         require_relative "configman/modules/#{module_name.downcase}"

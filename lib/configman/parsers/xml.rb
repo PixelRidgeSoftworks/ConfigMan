@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'rexml/document'
+require 'rexml/formatters/pretty'
+require_relative '../modules/utils'
 
 module ConfigMan
   module Parsers
@@ -32,15 +34,32 @@ module ConfigMan
         doc.add_element('config')
         existing_config.each { |k, v| doc.root.add_element(k).text = v }
 
-        File.open(CONFIG_FILE_PATH, 'w') { |file| doc.write(file) }
+        formatter = REXML::Formatters::Pretty.new
+        File.open(CONFIG_FILE_PATH, 'w') do |file|
+          formatter.write(doc, file)
+        end
       end
 
       def self.write(config_hash)
+        # Access the loaded modules and expected keys from the main class
+        loaded_modules = ConfigMan.used_modules
+        expected_keys = ConfigMan.expected_keys
+
+        # Sort the keys into their respective sections
+        sorted_config = Utils.sort_into_sections(config_hash, expected_keys, loaded_modules)
+
         doc = REXML::Document.new
         doc.add_element('config')
-        config_hash.each { |k, v| doc.root.add_element(k).text = v }
 
-        File.open(CONFIG_FILE_PATH, 'w') { |file| doc.write(file) }
+        sorted_config.each do |section, section_data|
+          section_element = doc.root.add_element(section)
+          section_data.each { |k, v| section_element.add_element(k).text = v }
+        end
+
+        formatter = REXML::Formatters::Pretty.new
+        File.open(CONFIG_FILE_PATH, 'w') do |file|
+          formatter.write(doc, file)
+        end
       end
     end
   end

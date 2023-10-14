@@ -6,7 +6,8 @@ module ConfigMan
       def self.populate_defaults
         {
           'language' => 'en',
-          'time_zone' => 'UTC'
+          'time_zone' => 'UTC',
+          'encoding' => 'UTF-8'
         }
       end
     end

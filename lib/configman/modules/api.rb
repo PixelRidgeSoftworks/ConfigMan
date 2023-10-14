@@ -2,7 +2,7 @@
 
 module ConfigMan
   module Modules
-    module Api
+    module API
       def self.populate_defaults
         {
           'api_endpoint' => 'https://api.example.com',

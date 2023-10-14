@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'json'
+require_relative '../modules/utils'
 
 module ConfigMan
   module Parsers
@@ -11,8 +12,6 @@ module ConfigMan
       def self.parse(file_path)
         raise ArgumentError, "File not found: #{file_path}" unless File.exist?(file_path)
 
-        @file_path = file_path
-
         file_content = File.read(file_path)
         parsed_config = ::JSON.parse(file_content)
 
@@ -22,21 +21,24 @@ module ConfigMan
       end
 
       def self.update(key, new_value)
-        # Read existing config
-        existing_config = parse
-
-        # Update the value
+        existing_config = parse(CONFIG_FILE_PATH)
         existing_config[key] = new_value
 
-        # Write the updated config back to the file
         File.open(CONFIG_FILE_PATH, 'w') do |file|
           file.write(::JSON.pretty_generate(existing_config))
         end
       end
 
       def self.write(config_hash)
+        # Access the loaded modules and expected keys from the main class
+        loaded_modules = ConfigMan.used_modules
+        expected_keys = ConfigMan.expected_keys
+
+        # Use the utility method to sort the keys into their respective sections
+        sorted_config = Utils.sort_into_sections(config_hash, expected_keys, loaded_modules)
+
         File.open(CONFIG_FILE_PATH, 'w') do |file|
-          file.write(::JSON.pretty_generate(config_hash))
+          file.write(::JSON.pretty_generate(sorted_config))
         end
       end
     end
