@@ -3,8 +3,6 @@ PATH
   specs:
     configman (1.0.0)
       inifile
-      json
-      yaml
 
 GEM
   remote: https://rubygems.org/
@@ -53,7 +51,6 @@ GEM
       parser (>= 3.2.1.0)
     ruby-progressbar (1.13.0)
     unicode-display_width (2.5.0)
-    yaml (0.2.1)
 
 PLATFORMS
   x86_64-linux
@@ -67,4 +64,4 @@ DEPENDENCIES
   rubocop (~> 1.21)
 
 BUNDLED WITH
-   2.4.19
+   2.4.20
