@@ -14,11 +14,6 @@ module ConfigMan
   @loaded_parser = nil
   @custom_modules = []
 
-  # Initialize with default or provided options
-  def self.init(options = {})
-    @config_values.merge!(options)
-  end
-
   # register any custom modules the user provides
   def self.register_module(file_path)
     raise ArgumentError, "File not found: #{file_path}" unless File.exist?(file_path)
@@ -36,7 +31,7 @@ module ConfigMan
   end
 
   # Setup ConfigMan with presets
-  def self.setup(default_modules, custom_options)
+  def self.setup(default_modules, custom_options = {})
     final_config = {}
 
     # Populate defaults from built-in modules
@@ -51,7 +46,7 @@ module ConfigMan
     end
 
     # Add custom options
-    final_config.merge!(custom_options)
+    final_config.merge!(custom_options) unless custom_options.empty?
 
     # Write to the config file using the appropriate parser
     parser_module = Object.const_get("ConfigMan::Parsers::#{@loaded_parser.upcase}")
