@@ -43,7 +43,6 @@ module ConfigMan # rubocop:disable Metrics/ModuleLength, Style/Documentation
 
     @custom_modules ||= []
     @custom_modules << mod_class
-    puts "Custom modules: #{@custom_modules.inspect}"  # Debug line
   end
 
   def self.used_modules
@@ -135,17 +134,23 @@ module ConfigMan # rubocop:disable Metrics/ModuleLength, Style/Documentation
     end
   end
 
-  # Load configurations from the .config file
-  def self.load
-    config_file_path = File.join(Dir.pwd, '.config')
-    parsed_config = send_to_parser(config_file_path)
+# Load configurations from the .config file
+def self.load
+  config_file_path = File.join(Dir.pwd, '.config')
+  parsed_config = send_to_parser(config_file_path)
 
-    parsed_config.each do |module_name, config|
-      define_singleton_method(module_name) do
-        config
-      end
+  # Merge custom modules' configurations into parsed_config
+  @custom_modules.each do |mod_class|
+    custom_config = mod_class.populate_defaults
+    parsed_config.merge!(custom_config)
+  end
+
+  parsed_config.each do |module_name, config|
+    define_singleton_method(module_name) do
+      config
     end
   end
+end
 
   # Delegate to the appropriate parser to parse the file
   def self.send_to_parser(file_path)
