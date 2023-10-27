@@ -60,7 +60,7 @@ ConfigMan.setup(default_modules)
 
 ## Wiki
 
-For more detailed information and advanced usage, please refer to our [Wiki](#Wiki)).
+For more detailed information and advanced usage, please refer to our [Wiki](Wiki)).
 
 ## Contributing
 
@@ -68,4 +68,4 @@ Contributions are welcome! Fork the repository to your account on our Git server
 
 ## License
 
-This project is licensed under the PixelRidge-BEGPULSE License. See the [LICENSE](#LICENSE) file for details.
+This project is licensed under the PixelRidge-BEGPULSE License. See the [LICENSE](LICENSE) file for details.
