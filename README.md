@@ -2,6 +2,8 @@
 
 ConfigMan is a Ruby gem designed to simplify the configuration management of your Ruby applications. It provides a modular approach, allowing you to easily manage different aspects of your application's configuration such as API, Cache, Database, Email, and more. You can even extend its functionality by registering your own custom modules.
 
+If you're new to the Gem, please refer to our [Wiki](https://git.pixelridgesoftworks.com/PixelRidge-Softworks/ConfigMan/wiki/ConfigMan-Wiki-Home) not just this Readme
+
 ## Table of Contents
 
 - [Installation](#installation)
