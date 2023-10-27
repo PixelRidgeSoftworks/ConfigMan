@@ -60,7 +60,7 @@ ConfigMan.setup(default_modules)
 
 ## Wiki
 
-For more detailed information and advanced usage, please refer to our [Wiki](Wiki)).
+For more detailed information and advanced usage, please refer to our [Wiki](https://git.pixelridgesoftworks.com/PixelRidge-Softworks/ConfigMan/wiki)).
 
 ## Contributing
 
