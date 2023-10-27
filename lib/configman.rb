@@ -6,7 +6,7 @@ require_relative 'configman/parsers/ini'
 require_relative 'configman/parsers/xml'
 require_relative 'configman/parsers/yaml'
 
-module ConfigMan
+module ConfigMan # rubocop:disable Metrics/ModuleLength, Style/Documentation
   class Error < StandardError; end
 
   @config_values = {}
@@ -41,7 +41,9 @@ module ConfigMan
       raise ArgumentError, "Custom module must implement a 'populate_defaults' method"
     end
 
+    @custom_modules ||= []
     @custom_modules << mod_class
+    puts "Custom modules: #{@custom_modules.inspect}"  # Debug line
   end
 
   def self.used_modules

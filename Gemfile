@@ -9,8 +9,6 @@ gem 'rake', '~> 13.0'
 
 gem 'rspec', '~> 3.0'
 
-gem 'rubocop', '~> 1.21'
+gem 'rexml', '~> 3.2'
 
-gem "rexml", "~> 3.2"
-
-gem "inifile", "~> 3.0"
+gem 'inifile', '~> 3.0'
