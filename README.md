@@ -62,11 +62,11 @@ ConfigMan.setup(default_modules)
 
 ## Wiki
 
-For more detailed information and advanced usage, please refer to our [Wiki](https://git.pixelridgesoftworks.com/PixelRidge-Softworks/ConfigMan/wiki/ConfigMan-Wiki-Home).
+For more detailed information and advanced usage, please refer to our [Wiki](https://git.pixelridgesoftworks.com/PixelRidge-Softworks/ConfigMan/wiki/ConfigMan-Wiki-Home). ***NOTE: The Wiki is still under construction, apologies for any confusion on usage***
 
 ## Contributing
 
-Contributions are welcome! Fork the repository to your account on our Git server, make your changes, and submit a PR! We will review, and if we don't find any issues, we will merge the PR!
+Contributions are welcome! Fork the repository to your account on our Git server, make your changes, and submit a PR! We will review, and if we don't find any issues, we will merge the PR! ***NOTE: Registration is currently disabled while we update some things. We apologize for any inconvenience***
 
 ## License
 
