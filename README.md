@@ -1,4 +1,5 @@
 # ConfigMan Gem
+[![Join our Discord](https://img.shields.io/badge/Discord-Join%20Server-7289DA?logo=discord&logoColor=white)](https://discord.gg/j6v99ZPkrQ)
 
 ConfigMan is a Ruby gem designed to simplify the configuration management of your Ruby applications. It provides a modular approach, allowing you to easily manage different aspects of your application's configuration such as API, Cache, Database, Email, and more. You can even extend its functionality by registering your own custom modules.
 
